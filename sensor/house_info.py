@@ -3,7 +3,7 @@ from datetime import date, datetime
 class HouseInfo:
 
     def __init__(self, data):
-        data = self.data
+        self.data = data
         
     def get_data_by_area(self, field, rec_area=0):
         field_data = []
