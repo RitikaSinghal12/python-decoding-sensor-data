@@ -16,7 +16,7 @@ class ParticleData(HouseInfo):
         recs = super().get_data_by_date("particulate", rec_date)
         return self._convert_data(recs)
 
-    def get_data_concetration(self, data):
+    def get_data_concetrations(self, data):
         particulate = {"good":0, "moderate":0, "bad":0}
         for rec in data:
             if(rec<=50.0):
@@ -27,4 +27,3 @@ class ParticleData(HouseInfo):
                 particulate["bad"]+1
         return particulate
 
-        

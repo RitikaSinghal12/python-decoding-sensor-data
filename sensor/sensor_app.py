@@ -4,6 +4,7 @@ from datetime import date, datetime
 from temperature_info import TemperatureData
 from humidity_info import HumidityData
 from particle_count_info import ParticleData
+from statistics import mean
 
 # Runner script for all modules
 
@@ -55,14 +56,14 @@ particle_data = ParticleData(data)
 recs = particle_data.get_data_by_area(rec_area=test_area)
 print("\nHouse Particle sensor records for area {} = {}".format(test_area, len(recs)))
 
-concentrations = particle_data.get_data_concetration(data=recs)
+concentrations = particle_data.get_data_concetrations(data=recs)
 print("\tGood Air Quality Recs: {}".format(concentrations["good"]))
 print("\tModerate Air Quality Recs: {}".format(concentrations["moderate"]))
 print("\tBad Air Quality Recs: {}".format(concentrations["bad"]))
 
 recs = particle_data.get_data_by_date(rec_area=test_date)
 print("\nHouse Particle sensor records for date: {} = {}".format( test_date.strftime("%m/%d/%y"), len(recs)))
-concentrations = particle_data.get_data_concetration(data=recs)
+concentrations = particle_data.get_data_concetrations(data=recs)
 print("\tGood Air Quality Recs: {}".format(concentrations["good"]))
 print("\tModerate Air Quality Recs: {}".format(concentrations["moderate"]))
 print("\tBad Air Quality Recs: {}".format(concentrations["bad"]))
